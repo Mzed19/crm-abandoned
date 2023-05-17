@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('observation');
             $table->string('description');
             $table->date('date');
+            $table->foreignId('user_id')->constrained();
             $table->time('duration');
             $table->timestamps();
         });

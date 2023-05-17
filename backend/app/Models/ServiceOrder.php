@@ -14,6 +14,7 @@ class ServiceOrder extends Model
         'observation',
         'description',
         'date',
+        'user_id',
         'duration'
     ];
 }
