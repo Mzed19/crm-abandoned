@@ -15,6 +15,7 @@ class CashFlow extends Model
         'material_id',
         'service_order_id',
         'payment_type',
+        'flow_type',
         'date',
         'description'
     ];

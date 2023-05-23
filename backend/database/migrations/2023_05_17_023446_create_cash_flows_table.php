@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('material_id')->constrained();
             $table->foreignId('service_order_id')->constrained();
             $table->enum('payment_type', ['card', 'money', 'check', 'pix', 'other']);
+            $table->enum('flow_type', ['positive', 'negative']);
             $table->dateTime('date');
             $table->string('description');
             $table->timestamps();
