@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MaterialController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('auth')->group(function () {
-    Route::middleware('auth:sanctum')->post('register', [AuthController::class, 'create']);
+    Route::post('register', [AuthController::class, 'create']);
     Route::post('login', [AuthController::class, 'login']);
+});
+
+Route::prefix('material')->middleware('auth:sanctum')->group(function () {
+    Route::post('', [MaterialController::class, 'create']);
+    Route::get('', [MaterialController::class, 'index']);
 });

@@ -10,8 +10,9 @@ class Material extends Model
     use HasFactory;
 
     protected $fillable = [
+        'name',
         'value',
         'description',
-        'amount',
+        'amount'
     ];
 }
