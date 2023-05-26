@@ -54,4 +54,22 @@ class MaterialController extends Controller
             );
         }
     }
+
+    public function delete($request): JsonResponse
+    {
+        try{
+            $materialService = new MaterialService();
+
+            $materials = $materialService->delete(id: $request->get("itemId"));
+
+            return ResponseJsonResponse::success(
+                message: "Item removido.",
+                data: MaterialResource::collection($materials)
+            );
+        }catch(Exception $e){
+            return ResponseJsonResponse::error(
+                message: $e->getMessage()
+            );
+        }
+    }
 }
