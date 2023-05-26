@@ -31,8 +31,8 @@ class MaterialService
         return $material->toArray();
     }
 
-    public function delete(int $id): void
+    public function delete(int $id): bool
     {
-        $this->materialRepository->delete(id: $id);
+        return $this->materialRepository->delete(id: $id);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Entities\MaterialEntity;
 use App\Http\Requests\MaterialCreateRequest;
+use App\Http\Requests\MaterialDeleteRequest;
 use App\Http\Resources\MaterialResource;
 use App\Response\JsonResponse as ResponseJsonResponse;
 use App\Services\Material\MaterialService;
@@ -55,16 +56,16 @@ class MaterialController extends Controller
         }
     }
 
-    public function delete($request): JsonResponse
+    public function delete(MaterialDeleteRequest $request): JsonResponse
     {
         try{
             $materialService = new MaterialService();
 
-            $materials = $materialService->delete(id: $request->get("itemId"));
+            $material = $materialService->delete(id: $request->get("id"));
 
             return ResponseJsonResponse::success(
                 message: "Item removido.",
-                data: MaterialResource::collection($materials)
+                data: [$material]
             );
         }catch(Exception $e){
             return ResponseJsonResponse::error(

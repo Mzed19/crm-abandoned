@@ -18,4 +18,9 @@ class MaterialRepository implements MaterialInterface
     {
         return Material::all();
     }
+
+    public function delete(int $id): bool
+    {
+        return Material::find($id)->delete();
+    }
 }
