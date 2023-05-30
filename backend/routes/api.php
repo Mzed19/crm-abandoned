@@ -28,5 +28,6 @@ Route::prefix('auth')->group(function () {
 Route::prefix('material')->middleware('auth:sanctum')->group(function () {
     Route::post('', [MaterialController::class, 'create']);
     Route::get('', [MaterialController::class, 'index']);
+    Route::put('', [MaterialController::class, 'update']);
     Route::delete('', [MaterialController::class, 'delete']);
 });

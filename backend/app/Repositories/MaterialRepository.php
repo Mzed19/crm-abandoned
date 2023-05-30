@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Entities\MaterialEntity;
 use App\Models\Material;
 use App\Services\Material\MaterialInterface;
 use Illuminate\Support\Collection;
@@ -22,5 +21,10 @@ class MaterialRepository implements MaterialInterface
     public function delete(int $id): bool
     {
         return Material::find($id)->delete();
+    }
+
+    public function update(int $id, array $material): bool
+    {
+        return Material::find($id)->update($material);
     }
 }

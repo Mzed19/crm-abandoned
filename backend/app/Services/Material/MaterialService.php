@@ -35,4 +35,12 @@ class MaterialService
     {
         return $this->materialRepository->delete(id: $id);
     }
+
+    public function update(MaterialEntity $material): bool
+    {
+        return $this->materialRepository->update(
+            id: $material->getId(),
+            material: $material->getDataWithoutId()
+        );
+    }
 }
